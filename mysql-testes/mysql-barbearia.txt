@@ -1,0 +1,28 @@
+create table cliente (
+id int auto_increment primary key,
+nome varchar (100) not null,
+telefone varchar (30)
+);
+
+select * from cliente;
+select * from servicos;
+
+delete from servicos where id=1;
+
+drop table servicos;
+
+create table servicos (
+id int auto_increment primary key,
+id_cliente int not null,
+procedimento varchar (150) not null,
+obs text,
+data_agenda date not null,
+hora_agenda time not null,
+data_log timestamp default current_timestamp,
+preco decimal (10,2) not null 
+);
+
+insert into cliente (nome, telefone) values ('pedro','49991311643');
+insert into cliente (nome, telefone) values ('joão', '49090909090909');
+
+insert into servicos (id_cliente,procedimento,obs,data_agenda,hora_agenda,preco) values (1,'barba','','2026-04-03','10:00:00',30.00);
